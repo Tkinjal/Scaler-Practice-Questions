@@ -1,0 +1,24 @@
+#Functions-Time to end CORONA
+#Problem Description
+#Given three integers, A, B and C. You have to find the number of days it will take to reach zero cases of Corona in a city.
+
+#A - Average cases recovered in a day of the corona.
+#B - Number of new cases of corona daily.
+#C - Current active cases of the corona.
+
+#Return the minimum number of days it will take to reach 0 active cases of Covid.
+
+class Solution:
+    # @param A : integer
+    # @param B : integer
+    # @param C : integer
+    # @return an integer
+    def solve(self, A, B, C):
+        count = 0
+        while C > 0:
+            C += B
+            C -= A
+            count += 1
+        return count
+        
+
