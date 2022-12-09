@@ -1,0 +1,40 @@
+/*Given an integer A, find the rounded value of real number A / 200.
+
+Rounded value of a real number X is the integer which is nearest to X, with halfway cases rounded away from zero.
+
+Some examples:
+
+Rounded value of 2.4 = 2
+Rounded value of 2.5 = 3
+Rounded value of 2.6 = 3
+Rounded value of 0.0 = 0
+Rounded value of -2.4 = -2
+Rounded value of -2.5 = -3
+Rounded value of -2.6 = -3
+*/
+
+
+
+class Solution:
+    # @param A : integer
+    # @return an integer
+    def solve(self, A):
+        temp = A / 200
+        ans = A // 200
+        if(temp>0):
+            x=temp-ans
+            if x>=0.5:
+                return (ans+1)  
+            else:
+                return(ans) 
+        elif temp<0:
+            x=temp-ans
+            if x>0.5:
+                return (ans+1)  
+            else:
+                return(ans) 
+        else:
+            return(0)
+          
+
+    
