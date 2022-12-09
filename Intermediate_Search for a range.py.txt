@@ -1,0 +1,40 @@
+/*Given a sorted array of integers A(0 based index) of size N, find the starting and the ending position of a given integer B in array A.
+
+Your algorithm's runtime complexity must be in the order of O(log n).
+
+Return an array of size 2, such that the first element = starting position of B in A and the second element = ending position of B in A, if B is not found in A return [-1, -1].
+*/
+
+
+class Solution:
+    # @param A : tuple of integers
+    # @param B : integer
+    # @return a list of integers
+    def searchRange(self, A, B):
+        n = len(A)
+        C = [-1,-1]
+        c = 0
+        l = 0
+        h = n-1
+        while(l<=h):
+            m = (l+h)//2
+            if A[m] == B:
+                C[0] = m
+                h = m-1
+            elif A[m] < B:
+                l = m+1
+            else:
+                h = m-1
+       
+        l = 0
+        h = n-1
+        while(l<=h):
+            m = (l+h)//2
+            if A[m] == B:
+                C[1] = m
+                l = m+1
+            elif A[m] < B:
+                l = m+1
+            else:
+                h = m-1
+        return C     
